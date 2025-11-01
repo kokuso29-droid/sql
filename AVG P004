@@ -1,0 +1,18 @@
+CREATE TABLE employees(
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(100),
+    salary INT
+);
+
+INSERT INTO employees VALUES(1,'Sato',400000); INSERT INTO employees VALUES(2,'Suzuki',450000); INSERT INTO employees VALUES(3,'Takahashi',500000);
+
+
+CREATE TABLE departments(dept_id int PRIMARY KEY, dept_name VARCHAR(100));
+
+INSERT INTO departments VALUES(10,'Sales'); INSERT INTO departments VALUES(20,'Engineering'); INSERT INTO employees VALUES(4,'Yamada',420000); INSERT INTO employees VALUES(5,'Kobayashi',470000); INSERT INTO employees VALUES(6,'Ito',430000); INSERT INTO departments VALUES(30,'HR');
+
+SELECT d.dept_name,AVG(e.salary)
+FROM employees e
+join departments d
+on e.emp_id = d.dept_id
+GROUp BY dept_id;
